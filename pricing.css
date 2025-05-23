@@ -1,0 +1,662 @@
+/* Reset & Base Styles */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    font-size: 12pt;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #131720;
+    color: #fff;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+ /* Basic navigation styling */
+ /* Basic navigation styling */
+ nav {
+    height: 60px;
+    color: #212529;
+    background-color: #131720;
+    padding: 15px 20px;
+    font-size: 18px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    z-index: 9999;  
+    
+  }
+
+  .logo-container {
+    height: 40px;
+    width: 200px; /* Make the container wider */
+    position: absolute;
+    left: 20px;
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center;
+  }
+
+  .logo-text {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 20px; /* Add more space to move text further to the right */
+    color: white;
+  } 
+
+  /* Link container for navigation */
+  .link-container {
+    display: flex;
+    flex-direction: row;  
+    align-items: center;
+    padding-right: 95px;
+  }
+
+  /* Navbar Links */
+  nav a {
+    padding: 15px 20px !important;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
+      transform 0.3s ease;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  /* Hover effect on navbar links */
+  nav a:hover {
+    border-radius: 5px;
+    transform: scale(1.05);
+}
+/* Dropdown Link */
+.dropdown-link {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Menu - Initially hidden */
+.dropdown-menu {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 166%;
+  left: 0;
+  background-color: #1b242f; /* Dark background matching #131720 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 10px 0;
+  z-index: 10;
+  min-width: 200px;
+  opacity: 0; /* Initially hidden */
+  visibility: hidden; /* Initially hidden */
+  transition: opacity 0.3s ease, visibility 0s 0.3s; /* Fade-in effect */
+}
+
+/* Show the dropdown when the parent link is focused or hovered */
+.dropdown-link:focus-within .dropdown-menu,
+.dropdown-link:hover .dropdown-menu {
+  display: block; /* Make dropdown visible */
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0s 0s; /* Fade-in effect */
+}
+
+/* Dropdown Menu Items */
+.dropdown-menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+  width: 100%; /* Ensure items take the full width of the dropdown */
+  border-radius: 15px;
+}
+
+/* Align links properly */
+.dropdown-menu ul li a {
+  padding: 10px 20px;
+  color: #f4f6f9; /* Light text color */
+  text-decoration: none;
+  display: block;
+  font-size: 18px;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.3s ease;
+  border-radius: 5px;
+  box-sizing: border-box;
+  text-align: center; /* Center-align text inside the links */
+}
+
+/* Hover effect for dropdown menu items */
+.dropdown-menu ul li a:hover {
+  color: #007bff; /* Light text color on hover */
+  transform: scale(1.05);
+}
+
+/* Active state for dropdown link */
+.dropdown-link:focus-within .nav-link,
+.dropdown-link:hover .nav-link {
+  color: #007bff; /* Active text color */
+}
+
+/* Hover effect for nav links */
+.nav-link:hover {
+  color: #007bff;
+}
+
+/* Ensure dropdown stays visible when clicked inside */
+.dropdown-link:focus-within .dropdown-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  display: flex;
+}
+
+/* Container for right-side items */
+/* Container for the right-side items */
+.nav-right {
+  position: absolute;
+  right: 50px;  /* Increase this value to shift the block further to the right */
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 20px;  /* Space between the search bar and profile */
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  padding: 5px 15px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 150px;
+  transition: width 0.3s ease;
+}
+  /* Search Bar Input Styles */
+  .search-bar input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 16px;
+    width: 100%; /* Ensure the input takes full width of the container */
+    transition: width 0.3s ease; /* Smooth transition for the input width */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* On focus, expand the search bar */
+  .search-bar input:focus {
+    width: 100%; /* Expand input width when focused */
+  }
+
+  .search-bar:focus-within {
+    width: 200px; /* Expand the entire search bar container */
+  }
+
+  .search-icon {
+    font-size: 20px;
+    color: #333;
+    margin-left: 10px;
+  }
+  /* Styling for the Sign In section */
+  .sign_in a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Optional: style the sign in text and SVG */
+  .sign_in span {
+    font-size: 16px;
+    margin-right: 8px;
+  }
+
+/* Make the SVG logo fill with the color */
+.sign_in svg {
+  fill: #2f80ed; /* Fill the logo with the specified color */
+}
+
+/* Optional: style for the text */
+.sign_in span {
+  font-size: 16px;
+  color: #fff; /* White text color */
+  margin-right: 8px; /* Add spacing between text and the icon */
+}
+.sign_in a :hover{
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+}
+/* Sign In/Profile */
+.profile a,
+.sign_in a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+ .profile-img {
+  width: 25px;
+  height: 25px;
+  border-radius: 4px;
+  margin-right: 5px;
+  fill: white;
+}
+
+.profile {
+  position: relative;
+  display: inline-block;
+  outline: none; /* Remove focus outline if desired */
+}
+
+/* Hide the dropdown by default */
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%; /* Position the dropdown just below the profile */
+  background-color: #1b242f; /* Dark background matching #131720 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin-top: 5px;
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+/* When the profile container (or any of its children) has focus, show the dropdown */
+.profile:focus-within .profile-dropdown {
+  display: block;
+}
+
+/* Dropdown styling */
+.profile-dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-dropdown ul li {
+  border-bottom: 1px solid #333;
+}
+
+.profile-dropdown ul li:last-child {
+  border-bottom: none;
+}
+
+.profile-dropdown ul li a {
+  display: block;
+  padding: 10px 15px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.profile-dropdown ul li a:hover {
+  color: #007bff; /* Light text color on hover */
+  transform: scale(1.05);
+}
+/* Show dropdown when hovering over the profile container */
+.profile:hover .profile-dropdown {
+  display: block;
+}
+/* Notifications Icon (optional) */
+.notifications svg {
+  fill: #fff;
+  width: 20px;
+  height: 20px;
+}
+
+
+
+/* Links */
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #1c8eff;
+}
+
+/* Container & Grid */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px;
+}
+
+[class*="col-"] {
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
+
+/* Responsive Columns */
+.col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.col-xl-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.col-lg-4 {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+}
+
+.col-xl-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+/* Sections */
+.section {
+    padding: 60px 0;
+}
+
+.section--pb0 {
+    padding-bottom: 0;
+}
+
+/* Head Section */
+.section--head {
+    background: #1a1a1a; /* Darker background instead of white */
+    border-bottom: 1px solid #333;
+    position: static;
+    z-index: 2;
+}
+.pricing-head {
+    margin-top: 20px;
+}
+.section--head-fixed {
+    position: sticky;
+    top: 0;
+}
+
+.section__title--head {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.breadcrumb {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.breadcrumb__item {
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.breadcrumb__item:not(:first-child):before {
+    content: '›';
+    margin-right: 5px;
+    color: #999;
+}
+
+.breadcrumb__item--active {
+    font-weight: bold;
+}
+
+/* Section Text */
+.section__text--small {
+    font-size: 16px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Features Section */
+.row--grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px;
+}
+
+.feature {
+    padding: 20px;
+    margin: 15px;
+    text-align: center;
+    flex: 1 0 21%; /* approximate 4 per row */
+}
+
+.feature__icon {
+    display: block;
+    margin: 0 auto 15px;
+    width: 40px;
+    height: 40px;
+    fill: #2f80ed;
+}
+
+.feature__title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.feature__text {
+    font-size: 14px;
+    color: white;
+    line-height: 1.5;
+}
+
+/* Plans Table */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    margin: 40px 0;
+}
+
+.plans__table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    background: #151f30;
+    border-radius: 16px;
+}
+
+
+
+.plans__table th,
+.plans__table td {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.plans__table tr{
+    border-bottom: 1px solid #272727;
+}
+
+.plans__table tr:last-child{
+    border-bottom: none;
+}
+
+.plans__head b {
+    font-size: 20px;
+    display: block;
+    margin-bottom: 5px;
+    color: #2f80ed;
+}
+
+.plans__head p {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.plans__head span {
+    font-size: 16px;
+    color: #bbb;
+}
+
+.plans__title {
+    display: block;
+    font-weight: bold;
+    text-align: left;
+    max-width: 280px;
+}
+
+.plans__status {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.plans__status--green svg {
+    stroke: #28a745;
+}
+
+.plans__status--red svg {
+    stroke: #dc3545;
+}
+
+.plans__btn {
+    padding: 10px 20px;
+    border: none;
+    background: #131720;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 16px;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.plans__btn:hover {
+    background: #0056b3;
+}
+
+/* Footer */
+footer {
+     background: linear-gradient(180deg, rgba(21,31,48,0.35) 0%, #131720 100%);;
+    color: #fff;
+    padding: 40px 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-left h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.footer-left span {
+    color: #1c8eff;
+}
+
+.footer-left p {
+    font-size: 14px;
+    color: #bbb;
+    margin-top: 10px;
+}
+
+.social-icons {
+    margin-top: 15px;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 18px;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #1c8eff;
+}
+
+.footer-links {
+    display: flex;
+    gap: 50px;
+}
+
+.column h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.column ul li {
+    margin-bottom: 8px;
+}
+
+.column ul li a {
+    text-decoration: none;
+    color: #bbb;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.column ul li a:hover {
+    color: #1c8eff;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    font-size: 14px;
+    color: #bbb;
+}
+
+.policy-links a {
+    color: #bbb;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s ease;
+}
+
+.policy-links a:hover {
+    color: #1c8eff;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .col-xl-6, .col-md-6, .col-lg-4, .col-xl-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .feature {
+        max-width: 100%;
+    }
+    .plans__table th, .plans__table td {
+        padding: 10px;
+    }
+}

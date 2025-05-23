@@ -1,0 +1,1104 @@
+  /* FONT */
+  @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-size: 12pt;
+    font-family: "Inter", serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #131720;
+    overflow-x: hidden;
+  }
+
+
+
+  /* Basic navigation styling */
+  nav {
+    height: 60px;
+    color: #212529;
+    background-color: #131720;
+    padding: 15px 20px;
+    font-size: 18px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    z-index: 9999;  
+    
+  }
+
+  .logo-container {
+    height: 40px;
+    width: 200px; /* Make the container wider */
+    position: absolute;
+    left: 20px;
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center;
+  }
+
+  .logo-text {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 20px; /* Add more space to move text further to the right */
+    color: white;
+  } 
+
+  /* Link container for navigation */
+  .link-container {
+    display: flex;
+    flex-direction: row;  
+    align-items: center;
+    padding-right: 95px;
+  }
+
+  /* Navbar Links */
+  nav a {
+    padding: 15px 20px !important;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
+      transform 0.3s ease;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  /* Hover effect on navbar links */
+  nav a:hover {
+    border-radius: 5px;
+    transform: scale(1.05);
+}
+/* Dropdown Link */
+.dropdown-link {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Menu - Initially hidden */
+.dropdown-menu {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 166%;
+  left: 0;
+  background-color: #1b242f; /* Dark background matching #131720 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 10px 0;
+  z-index: 10;
+  min-width: 200px;
+  opacity: 0; /* Initially hidden */
+  visibility: hidden; /* Initially hidden */
+  transition: opacity 0.3s ease, visibility 0s 0.3s; /* Fade-in effect */
+}
+
+/* Show the dropdown when the parent link is focused or hovered */
+.dropdown-link:focus-within .dropdown-menu,
+.dropdown-link:hover .dropdown-menu {
+  display: block; /* Make dropdown visible */
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0s 0s; /* Fade-in effect */
+}
+
+/* Dropdown Menu Items */
+.dropdown-menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+  width: 100%; /* Ensure items take the full width of the dropdown */
+  border-radius: 15px;
+}
+
+/* Align links properly */
+.dropdown-menu ul li a {
+  padding: 10px 20px;
+  color: #f4f6f9; /* Light text color */
+  text-decoration: none;
+  display: block;
+  font-size: 18px;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.3s ease;
+  border-radius: 5px;
+  box-sizing: border-box;
+  text-align: center; /* Center-align text inside the links */
+}
+
+/* Hover effect for dropdown menu items */
+.dropdown-menu ul li a:hover {
+  color: #007bff; /* Light text color on hover */
+  transform: scale(1.05);
+}
+
+/* Active state for dropdown link */
+.dropdown-link:focus-within .nav-link,
+.dropdown-link:hover .nav-link {
+  color: #007bff; /* Active text color */
+}
+
+/* Hover effect for nav links */
+.nav-link:hover {
+  color: #007bff;
+}
+
+/* Ensure dropdown stays visible when clicked inside */
+.dropdown-link:focus-within .dropdown-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  display: flex;
+}
+
+/* Container for right-side items */
+/* Container for the right-side items */
+.nav-right {
+  position: absolute;
+  right: 50px;  /* Increase this value to shift the block further to the right */
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 20px;  /* Space between the search bar and profile */
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  padding: 5px 15px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 150px;
+  transition: width 0.3s ease;
+}
+  /* Search Bar Input Styles */
+  .search-bar input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 16px;
+    width: 100%; /* Ensure the input takes full width of the container */
+    transition: width 0.3s ease; /* Smooth transition for the input width */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* On focus, expand the search bar */
+  .search-bar input:focus {
+    width: 100%; /* Expand input width when focused */
+  }
+
+  .search-bar:focus-within {
+    width: 200px; /* Expand the entire search bar container */
+  }
+
+  .search-icon {
+    font-size: 20px;
+    color: #333;
+    margin-left: 10px;
+  }
+  /* Styling for the Sign In section */
+  .sign_in a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Optional: style the sign in text and SVG */
+  .sign_in span {
+    font-size: 16px;
+    margin-right: 8px;
+  }
+
+/* Make the SVG logo fill with the color */
+.sign_in svg {
+  fill: #2f80ed; /* Fill the logo with the specified color */
+}
+
+/* Optional: style for the text */
+.sign_in span {
+  font-size: 16px;
+  color: #fff; /* White text color */
+  margin-right: 8px; /* Add spacing between text and the icon */
+}
+.sign_in a :hover{
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+}
+/* Sign In/Profile */
+.profile a,
+.sign_in a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+ .profile-img {
+  width: 25px;
+  height: 25px;
+  border-radius: 4px;
+  margin-right: 5px;
+  fill: white;
+}
+
+.profile {
+  position: relative;
+  display: inline-block;
+  outline: none; /* Remove focus outline if desired */
+}
+
+/* Hide the dropdown by default */
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%; /* Position the dropdown just below the profile */
+  background-color: #1b242f; /* Dark background matching #131720 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin-top: 5px;
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+/* When the profile container (or any of its children) has focus, show the dropdown */
+.profile:focus-within .profile-dropdown {
+  display: block;
+}
+
+/* Dropdown styling */
+.profile-dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-dropdown ul li {
+  border-bottom: 1px solid #333;
+}
+
+.profile-dropdown ul li:last-child {
+  border-bottom: none;
+}
+
+.profile-dropdown ul li a {
+  display: block;
+  padding: 10px 15px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.profile-dropdown ul li a:hover {
+  color: #007bff; /* Light text color on hover */
+  transform: scale(1.05);
+}
+/* Show dropdown when hovering over the profile container */
+.profile:hover .profile-dropdown {
+  display: block;
+}
+/* Notifications Icon (optional) */
+.notifications svg {
+  fill: #fff;
+  width: 20px;
+  height: 20px;
+}
+
+/* Styling for Owl Carousel */
+.owl-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* Space below the navbar */
+  width: 100%; /* Make the carousel take up the full width of its container */
+  overflow: hidden; /* Prevent overflow of carousel container */
+  margin: 0 auto; /* Center the carousel */
+  padding: 20px; /* Padding inside the carousel for aesthetics */
+  padding-top: 5%;
+}
+.card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.owl-carousel .item {
+  position: relative;
+  background-color: #f5f5f5;
+  border-radius: 50px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Each item should take full width */
+  object-fit: contain;
+  height: auto; /* Ensure the height adjusts according to the content */
+}
+.owl-carousel::-webkit-scrollbar {
+  display: none; /* Hide the scrollbar in WebKit browsers */
+}
+
+.owl-carousel .owl-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.owl-carousel .item:hover img {
+  transform: scale(1.05); /* Zoom effect on hover */
+}
+
+/* Customizing Owl Carousel navigation buttons */
+.owl-prev, .owl-next {
+  background-color: #131720;
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.owl-prev:hover, .owl-next:hover {
+  background-color: #c9d6ff;
+  color: #131720;
+}
+.item_carousel{
+display: flex;
+flex-direction: column;
+position: relative;
+}
+/* Icon styles – hidden by default */
+.icon {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: auto; /* So icons can be clickable if needed */
+}
+
+/* Show icons on hover of the card */
+.carousel-card:hover .icon {
+  opacity: 1;
+}
+
+/* Bookmark icon (left side) */
+.icon.bookmark {
+  top: 10px;
+  left: 10px;
+}
+
+/* Rating icon (right side) */
+.icon.rating {
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+}
+.icon.rating .rating-number {
+  margin-left: 5px;
+  font-size: 14px;
+  color: #fff;
+}
+
+/* Text container at the bottom left */
+.card_data {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  pointer-events: none;
+}
+.card_data h3,
+.card_data span {
+  margin: 0;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+  transition: color 0.3s ease;
+}
+  
+/* Change movie title color on hover */
+.carousel-card:hover .card_data h3 {
+  color: #007bff;
+}
+/* BOX TEST */
+.filter-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #151f30; /* Dark blue background */
+  border-radius: 10px;
+  padding: 10px 20px;
+  width: 80%; /* Adjust width as needed */
+  max-width: 1200px;
+  margin-left: 170px; /* Increase margin-left to move it further to the right */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Filter options */
+.filter-options {
+  display: flex;
+  gap: 20px;
+  color: white;
+}
+
+.filter-options span {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #131720; /* Slightly brighter than before */
+  padding: 10px 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-box {
+  display: flex;
+  background-color: transparent; /* No background needed since container provides it */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.toggle-btn {
+  flex: 1; /* Equal width for buttons */
+  padding: 10px 20px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: transparent; /* Matches parent background */
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+}
+
+.toggle-btn:hover {
+  background-color: #5f6b7d; /* Slightly brighter hover effect */
+}
+
+.toggle-btn.active {
+  background-color: #151F30; /* Highlight active button */
+  color: #2F80ED;
+}
+ /*  */
+/* Grid: 6 items per row */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;              /* Adjust gap between items */
+  max-width: 1200px;      /* Maximum width for the grid container */
+  margin: 0 auto;         /* Center the container horizontally */
+  padding: 0 20px;        /* Adds some space on the sides */
+  margin-left: 170px;
+}
+/* Card basic styling */
+/* 1ST CAROUSEL */
+.card {
+  font-family: Arial, sans-serif;
+  max-width: 250px; /* Adjust as needed */
+  margin: 0 auto; /* Centers the card inside its grid cell */
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px; /* Adjust vertical spacing between cards if needed */
+  /* Optional: add background, box-shadow, etc. */
+  
+}
+
+/* Image container with relative positioning */
+.card-image {
+  position: relative;
+  overflow: hidden;
+  height: 300px; /* Taller image area */
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;/* Adjust this value to shift the image vertically */
+  border: 2px solid;      /* This adds a solid border */
+  border-radius: 12px;         /* This makes the corners rounded */
+  transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+.card-image:hover img {
+  transform: scale(1.05);
+  filter: blur(2px);
+}
+.card:hover .card-text h3 {
+  color: #2F80ED; /* Change this to your desired color */
+  transition: color 0.3s ease-in-out; /* Smooth color transition */
+}
+/* Hover overlay: initially hidden, then fades in */
+.card-hover-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* center play button if needed; other icons are absolutely positioned separately */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* When hovering over the card, blur the image and show the overlay */
+.card:hover .card-image img {
+  filter: blur(4px);
+}
+.card:hover .card-hover-content {
+  opacity: 1;
+}
+
+/* Position the bookmark icon at top-left */
+.icon.bookmark {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #151f30;
+  border-radius: 10px;
+  padding: 4px; /* Increase this value as needed */
+}
+.icon.bookmark svg{
+  fill: #2f80ed;
+  transition: fill 0.5s;
+}
+/* Position the rating icon at top-right */
+.icon.rating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #151f30;
+  border-radius: 10px;
+  padding: 4px; /* Increase this value as needed */
+
+}
+.icon.rating span {
+  margin-left: 4px;
+  font-weight: bold;
+  color: white;
+}
+.icon.rating svg{
+  fill: #151f30;
+  stroke: #2f80ed;
+  transition: fill 0.5s;
+  stroke-width: 2px;
+}
+/* Center the play button */
+.icon.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.icon.play-button svg{
+  fill: white;
+  transition: fill 0.5s;
+}
+/* Card text placed below the image */
+.card-text {
+  text-align: center;
+  padding: 8px 0;
+  color: white;
+}
+/*2nd carousel cion */
+.icon-bookmark2 {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #151f30;
+  border-radius: 10px;
+  padding: 4px; /* Increase this value as needed */
+}
+.icon-bookmark2 svg{
+  fill: #2f80ed;
+  transition: fill 0.5s;
+}
+/* Position the rating icon at top-right */
+.icon-rating2 {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #151f30;
+  border-radius: 10px;
+  padding: 4px; /* Increase this value as needed */
+
+}
+.icon-rating2 span {
+  margin-left: 4px;
+  font-weight: bold;
+  color: white;
+}
+.icon-rating2 svg{
+  fill: #151f30;
+  stroke: #2f80ed;
+  transition: fill 0.5s;
+  stroke-width: 2px;
+}
+/* Center the play button */
+.icon-play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.icon-play-button svg{
+  fill: white;
+  transition: fill 0.5s;
+}
+
+
+
+/* Container for the subscriptions section */
+.subscriptions-section {
+  padding: 20px;
+  color: #fff; /* White text on dark background */
+  margin-top: 110px;
+  background: #101a2b;
+}
+.subscriptions-section h2 {
+  margin-bottom: 5px;
+  margin-left: 60px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Carousel Wrapper */
+.subscriptions-carousel-wrapper {
+  position: relative;
+}
+
+/* Owl Carousel container */
+.subscriptions-carousel {
+  /* Additional margin/padding if needed */
+}
+
+/* Subscription item: the card plus title/subtitle */
+.subscription-item {
+  text-align: center;
+  color: #fff;
+  margin: 0 5px;
+  width: 160px; /* Adjust item width to match your design's proportions */
+  padding-left: 40px; /* Adjust value as needed */
+  
+}
+
+/* The card that holds the image & overlay icons */
+.subscription-card {
+  position: relative;
+  background: #1e1e1e;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 160px;
+  height: 240px; /* New container height */
+}
+
+.subscription-card img {
+  position: absolute; /* Position the image absolutely */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the container */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.subscription-card:hover img {
+  transform: scale(1.05);
+  filter: blur(2px);
+}
+
+
+/* If you only want a blur on hover but no zoom, do:
+.subscription-card:hover img {
+  filter: blur(2px);
+}
+*/
+
+/* Overlay for icons on hover */
+.subscription-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.subscription-card:hover .subscription-overlay {
+  opacity: 1;
+  pointer-events: auto; /* So icons can be clickable if needed */
+}
+
+/* Base styling for overlay icons */
+.sub-icon{
+  position: absolute;
+  background-color: #151f30;
+}
+
+/* Bookmark Icon (top-left) */
+.sub-icon.sub-bookmark {
+  top: 10px;
+  left: 10px;
+  border-radius: 6px;
+  padding: 6px;
+}
+
+.sub-icon.sub-bookmark svg {
+  fill: #2f80ed; /* Accent color */
+  width: 24px;
+  height: 24px;
+}
+
+/* Play Icon (center) */
+.sub-icon-play {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sub-icon-play svg {
+  fill: #fff;
+  width: 36px;
+  height: 36px;
+}
+
+/* Remove transform scale on icon hover 
+   (i.e., no zoom effect for icons) */
+.subscription-card:hover .sub-icon,
+.subscription-card:hover .sub-icon-play {
+  /* transform: none; or simply omit transform rule */
+}
+
+/* Title & Subtitle below each card */
+.subscription-item h3 {
+  margin: 8px 0 4px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.subscription-item p {
+  margin: 0;
+  font-size: 14px;
+  color: #9CA3AF;
+}
+.subscriptions-carousel .subscription-item .subscription-card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+/* Custom Nav Buttons */
+.subs-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.15);
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  z-index: 1000;  /* High enough to be on top */
+  pointer-events: auto;
+}
+
+.subs-nav:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.subs-nav.prev {
+  left: 10px;
+}
+
+.subs-nav.next {
+  right: 10px;
+}
+
+/* Overall section styling */
+.plan-section {
+  background: #101a2b; /* Darker navy, or use #131720 if you prefer */
+  padding: 40px;
+  color: #fff;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.plan-section h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.plan-section p {
+  margin-bottom: 30px;
+  color: #9CA3AF;
+}
+
+/* Container for the three plan cards */
+.plan-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+/* Each individual plan card */
+.plan-card {
+  background: #151f30;
+  border-radius: 8px;
+  width: 280px; /* Adjust as needed */
+  padding: 24px;
+  text-align: left; /* So list items align left */
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for plan cards */
+.plan-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+}
+
+/* Highlighted plan card (Premium) */
+.plan-highlight {
+  background: linear-gradient(30deg, rgba(47, 128, 237, 0.7) 0%, rgba(47, 128, 237, 0.9) 100%);
+  color: #fff;
+}
+
+/* Plan Title */
+.plan-card h3 {
+  margin: 0 0 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Plan Features */
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.plan-features li {
+  margin-bottom: 10px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+/* Indicate check vs x with pseudo-elements or icons */
+
+/* For features marked as "check" – a green checkmark */
+.plan-features li.check::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  background: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width='16'%20height='16'%20viewBox='0%200%2016%2016'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cpath%20d='M2%208%20L6%2012%20L14%202'%20stroke='%234caf50'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%20fill='none'/%3E%3C/svg%3E") no-repeat center;
+  background-size: contain;
+}
+
+
+/* For features marked as "x" – a red X mark */
+.plan-features li.x::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  background: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width='16'%20height='16'%20viewBox='0%200%2016%2016'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cline%20x1='1'%20y1='1'%20x2='15'%20y2='15'%20stroke='%23e53e3e'%20stroke-width='2'/%3E%3Cline%20x1='15'%20y1='1'%20x2='1'%20y2='15'%20stroke='%23e53e3e'%20stroke-width='2'/%3E%3C/svg%3E") no-repeat center;
+  background-size: contain;
+}
+
+/* Plan Price */
+.plan-price {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.plan-price span {
+  font-size: 14px;
+  color: #9CA3AF;
+  margin-left: 4px;
+}
+
+/* Plan Button */
+.plan-button {
+  display: block;          /* Makes the button behave like a block element */
+  width: 80%;             /* Make it 80% of the card’s width; adjust as needed (e.g. 100%) */
+  margin: 0 auto;         /* Horizontally center it */
+  padding: 12px 0;        /* Top/bottom padding; 0 left/right to fill the width visually */
+  background: #131720;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-align: center;     /* Ensure text is centered inside the button */
+}
+
+.plan-button:hover {
+  background: rgba(255,255,255,0.2);
+}
+.icon-watch {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+footer {
+  background: #0c0e12;
+  color: #ffffff;
+  padding: 40px 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-left h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.footer-left span {
+  color: #1c8eff;
+}
+
+.footer-left p {
+  font-size: 14px;
+  color: #bbb;
+  margin-top: 10px;
+}
+
+.social-icons {
+  margin-top: 15px;
+}
+
+.social-icons a {
+  color: #ffffff;
+  font-size: 18px;
+  margin-right: 10px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #1c8eff;
+}
+
+.footer-links {
+  display: flex;
+  gap: 50px;
+  
+}
+
+.column h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.column ul li {
+  margin-bottom: 8px;
+}
+
+.column ul li a {
+  text-decoration: none;
+  color: #bbb;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.column ul li a:hover {
+  color: #1c8eff;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  font-size: 14px;
+  color: #bbb;
+}
+
+.policy-links a {
+  color: #bbb;
+  text-decoration: none;
+  margin-left: 20px;
+  transition: color 0.3s ease;
+}
+
+.policy-links a:hover {
+  color: #1c8eff;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .footer-links {
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+  }
+
+  .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .policy-links {
+      margin-top: 10px;
+  }
+}

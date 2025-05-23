@@ -1,0 +1,217 @@
+{
+  "Action": [
+    {
+      "id": 1,
+      "title": "Tenet",
+      "year": 2021,
+      "rating": 8.9,
+      "price": "Free",
+      "category": "Action",
+      "image": "new-img-carousel/img-3.png", 
+      "carouselImage": "Img/8.jpg",
+      "age": "PG-13",
+      "duration": "150 min"
+    },
+    {
+      "id": 2,
+      "title": "Money Plane",
+      "year": 2021,
+      "rating": 8.6,
+      "price": "Free",
+      "category": "Action",
+      "image": "new-img-carousel/img-2.png",
+      "carouselImage": "Img/1-carousel.jpg",
+      "age": "R",
+      "duration": "82 min"
+    }
+  ],
+  "History": [
+    {
+      "id": 1,
+      "title": "Pawn Sacrifice",
+      "year": 2015,
+      "rating": 8.2,
+      "price": "Free",
+      "category": "History",
+      "image": "Img-detail/1.png",
+      "carouselImage": "new-img-carousel/img-1.png",
+      "age": "PG-13",
+      "duration": "115 min"
+    },
+    {
+      "id": 2,
+      "title": "12 Years a Slave",
+      "year": 2013,
+      "rating": 8.1,
+      "price": "Free",
+      "category": "History",
+      "image": "Img-detail/6.png",
+      "carouselImage": "new-img-carousel/img-4.png",
+      "age": "R",
+      "duration": "134 min"
+    }
+  ],
+  "Drama": [
+    {
+      "id": 1,
+      "title": "The Good Lord Bird",
+      "year": 2020,
+      "rating": 7.9,
+      "price": "Free",
+      "category": "Drama",
+      "image": "Img-detail/2.png",
+      "carouselImage": "new-img-carousel/img-5.png",
+      "age": "TV-MA",
+      "duration": "60 min"
+    },
+    {
+      "id": 2,
+      "title": "Swimming for Gold",
+      "year": 2020,
+      "rating": 7.1,
+      "price": "Free",
+      "category": "Drama",
+      "image": "Img-detail/13.png",
+      "carouselImage": "",
+      "age": "PG",
+      "duration": "95 min"
+    },
+    {
+      "id": 3,
+      "title": "Luce",
+      "year": 2019,
+      "rating": 7.7,
+      "price": "Free",
+      "category": "Drama",
+      "image": "Img-detail/3.png",
+      "carouselImage": "",
+      "age": "R",
+      "duration": "109 min"
+    },
+    {
+      "id": 4,
+      "title": "Denial",
+      "year": 2016,
+      "rating": 7.5,
+      "price": "Free",
+      "category": "Drama",
+      "image": "Img-detail/8.png",
+      "carouselImage": "",
+      "age": "PG-13",
+      "duration": "110 min"
+    }
+  ],
+  "Comedy": [
+    {
+      "id": 1,
+      "title": "The Dictator",
+      "year": 2012,
+      "rating": 6.4,
+      "price": "Free",
+      "category": "Comedy",
+      "image": "Img-detail/4.png",
+      "carouselImage": "",
+      "age": "R",
+      "duration": "83 min"
+    }
+  ],
+  "Biography": [
+    {
+      "id": 1,
+      "title": "Get On Up",
+      "year": 2014,
+      "rating": 7.6,
+      "price": "Free",
+      "category": "Biography",
+      "image": "Img-detail/5.png",
+      "carouselImage": "",
+      "age": "PG-13",
+      "duration": "139 min"
+    },
+    {
+      "id": 2,
+      "title": "Fighting with My Family",
+      "year": 2019,
+      "rating": 7.1,
+      "price": "Free",
+      "category": "Biography",
+      "image": "Img-detail/11.png",
+      "age": "PG-13",
+      "duration": "108 min"
+    }
+  ],
+  "Sport": [
+    {
+      "id": 1,
+      "title": "Footloose",
+      "year": 2011,
+      "rating": 6.6,
+      "price": "Free",
+      "category": "Sport",
+      "image": "",
+      "age": "PG-13",
+      "duration": "113 min"
+    }
+  ],
+  "Thriller": [
+    {
+      "id": 1,
+      "title": "Infamous",
+      "year": 2020,
+      "rating": 6.3,
+      "price": "Free",
+      "category": "Thriller",
+      "image": "",
+      "age": "R",
+      "duration": "100 min"
+    },
+    {
+      "id": 2,
+      "title": "Above the Shadows",
+      "year": 2029,
+      "rating": 5.8,
+      "price": "Free",
+      "category": "Thriller",
+      "image": "",
+      "age": "PG-13",
+      "duration": "105 min"
+    },
+    {
+      "id": 3,
+      "title": "The Dustwalker",
+      "year": 2019,
+      "rating": 6.2,
+      "price": "Free",
+      "category": "Thriller",
+      "image": "",
+      "age": "R",
+      "duration": "92 min"
+    }
+  ],
+  "Sci-Fi": [
+    {
+      "id": 1,
+      "title": "After Darkness",
+      "year": 2018,
+      "rating": 5.7,
+      "price": "Free",
+      "category": "Sci-Fi",
+      "image": "",
+      "age": "PG-13",
+      "duration": "86 min"
+    }
+  ],
+  "Horror": [
+    {
+      "id": 1,
+      "title": "I Still See You",
+      "year": 2018,
+      "rating": 6.4,
+      "price": "Free",
+      "category": "Horror",
+      "image": "",
+      "age": "PG-13",
+      "duration": "98 min"
+    }
+  ]
+}
