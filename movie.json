@@ -72,7 +72,7 @@
       "price": "Free",
       "category": "Drama",
       "image": "Img-detail/13.png",
-      "carouselImage": "",
+      "carouselImage": "new-img-carousel/img-6.png",
       "age": "PG",
       "duration": "95 min"
     },
@@ -84,7 +84,7 @@
       "price": "Free",
       "category": "Drama",
       "image": "Img-detail/3.png",
-      "carouselImage": "",
+      "carouselImage": "new-img-carousel/img-7.png",
       "age": "R",
       "duration": "109 min"
     },
@@ -96,7 +96,7 @@
       "price": "Free",
       "category": "Drama",
       "image": "Img-detail/8.png",
-      "carouselImage": "",
+      "carouselImage": "new-img-carousel/img-8.png",
       "age": "PG-13",
       "duration": "110 min"
     }

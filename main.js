@@ -1,19 +1,27 @@
+function shuffleArray(array) {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
 // Hàm tải dữ liệu phim
+// Fetch and load movies
 async function fetchAndLoadMovies() {
   try {
     const res = await fetch("./movie.json");
     const data = await res.json();
+
     const allMovies = Object.values(data).flat();
+    const shuffledMovies = shuffleArray(allMovies);
 
-    // Limit for carousel
-    const carouselLimit = 5;
-    const limitedMovies = allMovies.slice(0, carouselLimit);
-    loadCarousel(limitedMovies);
+    const carouselMovies = shuffledMovies.filter(m => m.carouselImage).slice(0, 5);
+    loadCarousel(carouselMovies);
 
-    // Limit for container
-    const containerLimit = 20;
-    const limitedMovies2 = allMovies.slice(0, containerLimit);
-    loadMovieContainer(limitedMovies2);
+    const containerMovies = shuffleArray(allMovies).slice(0, 20);
+    loadMovieContainer(containerMovies);
   } catch (error) {
     console.error("Error loading movie data:", error);
   }
