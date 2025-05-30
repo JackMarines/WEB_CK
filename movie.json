@@ -110,7 +110,7 @@
       "price": "Free",
       "category": "Comedy",
       "image": "Img-detail/4.png",
-      "carouselImage": "",
+      "carouselImage": "new-img-carousel/img-9.png",
       "age": "R",
       "duration": "83 min"
     }
@@ -124,7 +124,7 @@
       "price": "Free",
       "category": "Biography",
       "image": "Img-detail/5.png",
-      "carouselImage": "",
+      "carouselImage": "new-img-carousel/img-10.png",
       "age": "PG-13",
       "duration": "139 min"
     },
@@ -136,6 +136,7 @@
       "price": "Free",
       "category": "Biography",
       "image": "Img-detail/11.png",
+      "carouselImage": "new-img-carousel/img-11.png",
       "age": "PG-13",
       "duration": "108 min"
     }
@@ -148,7 +149,8 @@
       "rating": 6.6,
       "price": "Free",
       "category": "Sport",
-      "image": "",
+      "image": "Img-detail/12.png",
+      "carouselImage": "new-img-carousel/img-12.png",
       "age": "PG-13",
       "duration": "113 min"
     }
@@ -161,7 +163,8 @@
       "rating": 6.3,
       "price": "Free",
       "category": "Thriller",
-      "image": "",
+      "image": "Img-detail/14.png",
+      "carouselImage": "new-img-carousel/img-13.png",
       "age": "R",
       "duration": "100 min"
     },
@@ -172,7 +175,8 @@
       "rating": 5.8,
       "price": "Free",
       "category": "Thriller",
-      "image": "",
+      "image": "Img-detail/15.png",
+      "carouselImage": "new-img-carousel/img-14.png",
       "age": "PG-13",
       "duration": "105 min"
     },
@@ -183,7 +187,8 @@
       "rating": 6.2,
       "price": "Free",
       "category": "Thriller",
-      "image": "",
+      "image": "Img-detail/18.png",
+      "carouselImage": "new-img-carousel/img-15.png",
       "age": "R",
       "duration": "92 min"
     }
@@ -196,7 +201,8 @@
       "rating": 5.7,
       "price": "Free",
       "category": "Sci-Fi",
-      "image": "",
+      "image": "Img-detail/16.png",
+      "carouselImage": "new-img-carousel/img-16.png",
       "age": "PG-13",
       "duration": "86 min"
     }
@@ -209,7 +215,8 @@
       "rating": 6.4,
       "price": "Free",
       "category": "Horror",
-      "image": "",
+      "image": "Img-detail/17.png",
+      "carouselImage": "new-img-carousel/img-17.png",
       "age": "PG-13",
       "duration": "98 min"
     }
