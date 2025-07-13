@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Sliding Login Form</title>
-  <link rel="stylesheet" href="login_signup.css">
+  <link rel="stylesheet" href="css/login_signup.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 </head>
 <body>
@@ -78,7 +78,22 @@
     });
   </script>
 
-  <script src="./register.js"></script>
-  <script src="./login.js"></script>
+  <script src="./func/register.js"></script>
+  <script src="./func/login.js"></script>
+
+   <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-storage-compat.js"></script>
+
+    <!-- Firebase Auth -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.13.1/firebase-auth-compat.min.js"
+        integrity="sha512-b2PGOE6ClpdFR5WZylPqJ9NEtHyGtdXKIe5wI0qRKVg3VeH9Km8CvihpnySwf6v21TV2cMTUp/BuglUiFLB38Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="./func/firebase-config.js"></script>
+    <script src="./func/login.js"></script>
+    <script src="./func/register.js"></script>
+
 </body>
 </html>

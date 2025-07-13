@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Page</title>
-    <link rel="stylesheet" href="detail.css">
+    <link rel="stylesheet" href="css/detail.css">
     <!-- Owl Carousel CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
@@ -118,16 +118,9 @@
   </div>
 
   <!-- This iframe is hidden by default -->
-  <div class="video-banner-container" id="youtubeFrame" style="display: none;">
-  <div class="video-responsive">
-    <iframe
-      src="https://www.youtube.com/embed/VuL9ZnHDVdc?autoplay=1"
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
-    ></iframe>
-  </div>
+  
+<div class="video-banner-container" id="youtubeFrame" style="display: none;">
+  <div class="video-responsive" id="videoContainer"></div>
 </div>
             <div class="video-controls">
                 <p>
@@ -561,8 +554,8 @@
     });
     
 </script>
-  <script src="detail.js"></script>
-  <script src="video_player.js"></script>
+  <script src="func/detail.js"></script>
+  <script src="func/video_player.js"></script>
 
 
 </body>
