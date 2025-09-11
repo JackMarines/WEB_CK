@@ -41,6 +41,7 @@ html {
 html,
 body {
   height: 100%;
+  box-sizing: border-box;
 }
 body {
   font-family: 'Inter', sans-serif;
@@ -590,6 +591,7 @@ body::-webkit-scrollbar-thumb {
   text-transform: uppercase;
   font-weight: 500;
   margin-left: auto;
+  text-decoration: none;
 }
 .main__title-link:hover {
   color: #151f30;
@@ -617,9 +619,11 @@ body::-webkit-scrollbar-thumb {
   margin-bottom: 0;
   border: none;
 }
-.main__table tbody tr {
+/* ...existing code... */
+.main__table:not(.main__table--dash) tbody tr:not(:last-child) td {
   border-bottom: 10px solid #131720;
 }
+/* ...existing code... */
 .main__table tbody td {
   padding: 0;
   background-color: transparent;
@@ -938,6 +942,7 @@ body::-webkit-scrollbar-thumb {
   margin-left: 15px;
   color: #e0e0e0;
   border-radius: 12px;
+  text-decoration: none
 }
 .dashbox__more:hover {
   color: #2f80ed;
