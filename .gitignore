@@ -2,3 +2,4 @@
 .env
 .env.*
 server/.env
+firebase-config.js
