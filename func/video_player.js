@@ -1,26 +1,51 @@
-const playButton = document.getElementById('playButton');
-const videoWrapper = document.getElementById('videoWrapper');
-const youtubeFrame = document.getElementById('youtubeFrame');
-const videoContainer = document.getElementById('videoContainer');
+document.addEventListener("DOMContentLoaded", async () => {
+  const params = new URLSearchParams(window.location.search);
+  const movieId = params.get("id");
 
-playButton.addEventListener('click', () => {
-  // Hide the wrapper (thumbnail + play button)
-  videoWrapper.style.display = 'none';
+  if (!movieId) {
+    console.error("No movie ID found in URL");
+    return;
+  }
 
-  // Show the container for the video
-  youtubeFrame.style.display = 'block';
+  try {
+    // Get the movie document from Firestore
+    const docSnap = await db.collection("movies-data").doc(movieId).get();
+    if (!docSnap.exists) {
+      console.error("Movie not found in Firestore");
+      return;
+    }
 
-  // Dynamically create the iframe
-  const iframe = document.createElement('iframe');
-  iframe.src = "https://www.youtube.com/embed/VuL9ZnHDVdc?autoplay=1";
-  iframe.title = "YouTube video player";
-  iframe.frameBorder = "0";
-  iframe.allow =
-    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-  iframe.allowFullscreen = true;
-  iframe.style.width = "100%";
-  iframe.style.height = "100%";
+    const movie = docSnap.data();
 
-  // Insert iframe into the video container
-  videoContainer.appendChild(iframe);
+    // Elements
+    const playButton = document.getElementById("playButton");
+    const videoWrapper = document.getElementById("videoWrapper");
+    const youtubeFrame = document.getElementById("youtubeFrame");
+    const videoContainer = document.getElementById("videoContainer");
+
+    if (playButton && movie.youtubeLink) {
+      playButton.addEventListener("click", () => {
+        // Hide thumbnail wrapper
+        videoWrapper.style.display = "none";
+
+        // Show video container
+        youtubeFrame.style.display = "block";
+
+        // Create iframe with the link from Firestore
+        const iframe = document.createElement("iframe");
+        iframe.src = movie.youtubeLink.replace("watch?v=", "embed/") + "?autoplay=1";
+        iframe.title = "YouTube video player";
+        iframe.frameBorder = "0";
+        iframe.allow =
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen = true;
+        iframe.style.width = "95%";
+        iframe.style.height = "95%";
+
+        videoContainer.appendChild(iframe);
+      });
+    }
+  } catch (err) {
+    console.error("Error fetching movie data:", err);
+  }
 });

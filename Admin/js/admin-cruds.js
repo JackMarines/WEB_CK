@@ -1,11 +1,23 @@
+// Pagination constants
+const MOVIES_PER_PAGE = 10;
+let currentPage = 1;
+let pageSnapshots = []; // Store last doc of each page
+
 // Load danh sách movies
-async function loadMovies() {
+async function loadMovies(page = 1) {
   const productTableBody = document.getElementById("movies-list");
   let htmls = "";
-  let index = 1;
+  let index = (page - 1) * MOVIES_PER_PAGE + 1;
+
+  let query = db.collection("movies-data").orderBy("createdAt", "desc").limit(MOVIES_PER_PAGE);
+
+  // For pages after the first, use startAfter
+  if (page > 1 && pageSnapshots[page - 2]) {
+    query = query.startAfter(pageSnapshots[page - 2]);
+  }
 
   try {
-    const querySnapshot = await db.collection("movies-data").get();
+    const querySnapshot = await query.get();
 
     querySnapshot.forEach((doc) => {
       const movies = doc.data();
@@ -46,28 +58,52 @@ async function loadMovies() {
     });
 
     productTableBody.innerHTML = htmls;
-    // Gán suy kiện sửa
-      document.querySelectorAll(".main__table-btn--edit").forEach((btn) => {
+
+    // Save the last doc for pagination
+    if (querySnapshot.docs.length > 0) {
+      pageSnapshots[page - 1] = querySnapshot.docs[querySnapshot.docs.length - 1];
+    }
+
+    // Re-attach your edit/delete event listeners here
+    document.querySelectorAll(".main__table-btn--edit").forEach((btn) => {
       btn.addEventListener("click", () => {
         const movieId = btn.getAttribute("data-id");
         localStorage.setItem("editingProductId", movieId);
-        window.location.href = "add-item.html"; // reuse same form
+        window.location.href = "add-item.html";
       });
     });
 
-
-    // Gán sự kiện xóa
-    const btnDeleteProduct = document.querySelectorAll(".main__table-btn--delete");
-    btnDeleteProduct.forEach((btn) => {
+    document.querySelectorAll(".main__table-btn--delete").forEach((btn) => {
       btn.addEventListener("click", async () => {
         const productId = btn.getAttribute("data-id");
         await deleteProduct(productId);
       });
     });
 
+    // Render paginator
+    renderPaginator(page);
+
   } catch (error) {
     console.error("Error fetching products: ", error);
   }
+}
+
+function renderPaginator(page) {
+  const paginator = document.querySelector(".paginator__paginator");
+  paginator.innerHTML = "";
+
+  // For demo, show 5 pages. You can improve this by calculating total pages.
+  for (let i = 1; i <= 5; i++) {
+    paginator.innerHTML += `<li class="${i === page ? 'active' : ''}"><a href="#" data-page="${i}">${i}</a></li>`;
+  }
+
+  paginator.querySelectorAll("a[data-page]").forEach(a => {
+    a.onclick = (e) => {
+      e.preventDefault();
+      currentPage = parseInt(a.getAttribute("data-page"));
+      loadMovies(currentPage);
+    };
+  });
 }
 
 // Xóa sản phẩm
@@ -84,7 +120,7 @@ async function deleteProduct(productId) {
 }
 
 // Khởi chạy loadMovies khi mở trang
-loadMovies();
+loadMovies(currentPage);
 
 // logout function
 const logout_btn = document.getElementById("logout_btn");
@@ -96,3 +132,14 @@ if (logout_btn) {
     location.href = "../Sliding Login Form.html"; // redirect to login page
   });
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      const sidebarUsername = document.getElementById("sidebar-username");
+      if (sidebarUsername) {
+        sidebarUsername.textContent = user.username;
+      }
+    }
+  });
+});

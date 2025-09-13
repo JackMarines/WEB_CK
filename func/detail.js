@@ -1,39 +1,40 @@
-const searchQuery = new URLSearchParams(location.search)
 
-const id = searchQuery.get("id")
-const type = searchQuery.get("type")
+    document.addEventListener("DOMContentLoaded", async () => {
+  const searchQuery = new URLSearchParams(location.search);
+  const id = searchQuery.get("id");
 
-console.log("id: ",id)
-console.log("type: ", typeof type)
-
-fetch("./movie.json")
-.then(response => response.json())
-.then(data => {
-  const moviesOfType = data[type]; // or data[type] if your JSON keys are the types
-  if (!moviesOfType) {
-    console.error(`No movies found for type "${type}"`);
+  if (!id) {
+    console.error("No movie ID provided in URL!");
     return;
   }
 
-  // Find the movie with matching id inside this type array
-  const movie = moviesOfType.find(m => String(m.id) === id);
+  try {
+    // 🔹 Fetch movie by ID from Firestore
+    const doc = await db.collection("movies-data").doc(id).get();
 
-  if (movie) {
-    loadData(movie);
-  } else {
-    console.error("Movie not found");
+    if (!doc.exists) {
+      console.error("Movie not found in Firestore!");
+      return;
+    }
+
+    const data = doc.data();
+    console.log("Loaded movie:", data);
+
+    loadData(data);
+  } catch (error) {
+    console.error("Error fetching movie:", error);
   }
 });
 
-
 function loadData(data) {
-    console.log(data)
-    let main = document.getElementById("trailer-container")
+  let main = document.getElementById("trailer-container");
+  const hero = document.querySelector(".hero");
 
-    const hero = document.querySelector(".hero")
-    console.log(hero)
-    hero.style.background = "url('Img/details.jpg') center/cover, linear-gradient(180deg, rgba(19,23,32,0.5) 0%, #131720 100%)";
-    
+  if (hero) {
+    hero.style.background =
+      "url('Img/details.jpg') center/cover, linear-gradient(180deg, rgba(19,23,32,0.5) 0%, #131720 100%)";
+  }
+
     main.innerHTML += `
     <div class="play-container">
         <button class="play-button">
@@ -44,7 +45,7 @@ function loadData(data) {
         </button>
         <span class="trailer-text">Trailer</span>
     </div>
-    <h1>${data.title}</h1>
+    <h1>${data.name}</h1>
     <div class="blurred-line"></div>
     <div class="movie-details">
         <div class="detail">
@@ -52,7 +53,6 @@ function loadData(data) {
             <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                 <path fill="#1e90ff" d="M8 12l-3.5 2.1 1-4.4L1 6.9l4.4-.4L8 2l2.6 4.5 4.4.4-3.5 3.8 1 4.4L8 12z"/>
             </svg>
-            <span class="rating">${data.rating || "8.3"}</span>
         </div>
         <div class="detail">
             <!-- Dot Icon for Release Date -->
@@ -66,7 +66,7 @@ function loadData(data) {
             <svg width="1" height="1" viewBox="0 0 8 8" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="4" cy="4" r="1" fill="#1e90ff"/>
             </svg>
-            <span class="duration">${data.duration || "106 min"}</span>
+            <span class="duration">${data.runtime || "106 min"}</span>
         </div>
         <div class="detail">
             <!-- Dot Icon for Age Limit -->
@@ -77,10 +77,11 @@ function loadData(data) {
         </div>
     </div>
   `;
+   const desc = document.getElementById("movieDescription");
+  if (desc) {
+    desc.innerHTML = `<p>${data.description || "No description available."}</p>`;
 }
-
-
-
+}
 
 
 

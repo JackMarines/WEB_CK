@@ -1400,7 +1400,21 @@
 </footer>
 
 
-    <!--  -->
+    <!-- JS -->
+
+	 	<!-- Firebase SDKs -->
+	<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-storage-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
+	<script src="./func/firebase-config.js"></script>
+
+	   <!-- Firebase Auth -->	
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.13.1/firebase-auth-compat.min.js"
+        integrity="sha512-b2PGOE6ClpdFR5WZylPqJ9NEtHyGtdXKIe5wI0qRKVg3VeH9Km8CvihpnySwf6v21TV2cMTUp/BuglUiFLB38Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
       integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -1461,6 +1475,7 @@
       </script>
        <script src="func/account.js"></script>
        <script src="func/main.js"></script>
+       <script src="func/get-movies.js"></script>
   <script>
         let userSession = JSON.parse(localStorage.getItem('user_session'));
     </script>

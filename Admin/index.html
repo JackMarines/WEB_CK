@@ -58,7 +58,7 @@
 
 			<div class="sidebar__user-title">
 				<span>Admin</span>
-				<p>John Doe</p>
+				<p id="sidebar-username">John Doe</p>
 			</div>
 
 			<button class="sidebar__user-btn" id="logout_btn" type="button">
@@ -339,3 +339,18 @@
 											<div class="main__table-text">23</div>
 										</td>
 										<td>
+
+
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-storage-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
+	<script src="../func/firebase-config.js"></script>
+
+	   <!-- Firebase Auth -->	
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.13.1/firebase-auth-compat.min.js"
+        integrity="sha512-b2PGOE6ClpdFR5WZylPqJ9NEtHyGtdXKIe5wI0qRKVg3VeH9Km8CvihpnySwf6v21TV2cMTUp/BuglUiFLB38Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="js/admin-cruds.js"></script>

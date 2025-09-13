@@ -333,7 +333,7 @@ body {
 }
 .play-container {
     position: absolute;
-    top: 35%; /* Adjust this to move the button and text up/down */
+    top: 40%; /* Adjust this to move the button and text up/down */
     left: 15.5%;
     transform: translateX(-50%); /* Centers the play button and trailer text */
     display: flex;
@@ -385,7 +385,7 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 10px;
+    margin-bottom: -8px;
     z-index: 2; /* Ensure text is above the blurred line */
 }
 
